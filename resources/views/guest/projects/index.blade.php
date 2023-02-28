@@ -16,6 +16,7 @@
                     <div class="card p-2 h-100 d-flex flex-column justify-content-between">
                         <div class="top">
                             <h4>{{ $project->title }}</h4>
+                            <div class="text-capitalize text-primary">{{ $project->type->name }}</div>
                             <pre class="text-secondary">{{ $project->user->name . ' ' . $project->user->lastname }}</pre>
                             <p>{{ $project->content }}</p>
                         </div>
