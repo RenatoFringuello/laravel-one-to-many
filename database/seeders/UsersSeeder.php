@@ -17,6 +17,15 @@ class UsersSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
+        //test user
+        $user = new User();
+        $user->username = 'renato';
+        $user->name = 'Renato';
+        $user->lastname = 'Fringuello';
+        $user->email = 'g@gmail.com';
+        $user->password = Hash::make('12345678');
+        $user->save();
+
         $usersInDb = User::all(['username', 'email'])->toArray();
         // dd($usersInDb);
         for ($i=0; $i<10; $i++) {
