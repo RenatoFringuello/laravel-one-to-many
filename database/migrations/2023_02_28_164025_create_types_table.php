@@ -15,8 +15,7 @@ return new class extends Migration
     {
         Schema::create('types', function (Blueprint $table) {
             $table->id();
-            $table->boolean('front_end');
-            $table->boolean('back_end');
+            $table->string('name', 10);//front-end (10 char)
             $table->timestamps();
         });
     }
