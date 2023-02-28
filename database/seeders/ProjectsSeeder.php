@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Project;
 use App\Models\User;
+use App\Models\Type;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
@@ -26,6 +27,7 @@ class ProjectsSeeder extends Seeder
                 $proj->title = $faker->unique()->realTextBetween(4, 20);
             }while(in_array(['title' => $proj->title], $projectsInDb));
             $proj->user_id = User::inRandomOrder()->first()->id;
+            $proj->type_id = Type::inRandomOrder()->first()->id;
             $proj->slug = Str::slug($proj->title) . '';
             $proj->content = $faker->realTextBetween(30, 200);
             $proj->image = 'images/projects/placeholder.jpg';
