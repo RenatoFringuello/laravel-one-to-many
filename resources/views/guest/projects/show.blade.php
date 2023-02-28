@@ -12,7 +12,7 @@
                 <div class="right w-100 w-md-50 px-md-3 d-flex flex-column justify-content-between">
                     <div class="top">
                         <h2>{{ $project->title }}</h2>
-                        <div class="text-capitalize text-primary fs-5">{{ $project->type->name }}</div>
+                        <div class="text-capitalize fs-5 {{($project->type->id == 1)?'text-success':(($project->type->id == 2)?'text-danger':'text-primary')}}">{{ $project->type->name }}</div>
                         <pre class="text-secondary fs-5 mb-3">{{ $project->user->name . ' ' . $project->user->lastname }}</pre>
                         <p class="mb-3">{{$project->content}}</p>
                     </div>
