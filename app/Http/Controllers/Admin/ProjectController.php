@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use App\Models\Type;
 use GuzzleHttp\Handler\Proxy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,6 +23,7 @@ class ProjectController extends Controller
      */
     protected function getValidatedData(Request $request){
         $validation = [
+            'type_id' => "required|in:1,2,3",
             'title' => "required|max:50",
             'image' => "image",
             'content' => 'required',
@@ -29,6 +31,8 @@ class ProjectController extends Controller
             'end_date' => 'date|nullable|after:start_date',
         ];
         $validationMessages = [
+            'type_id.required' => 'Il tipo di progetto è un campo obbligatorio',
+            'type_id.in' => 'Seleziona un campo fra quelli disponibili',
             'title.required' => 'Il titolo è un campo obbligatorio',
             'title.max' => 'Hai inserito troppi caratteri in title',
             'image.image' => 'Qui puoi inserire solo immagini',
@@ -78,7 +82,8 @@ class ProjectController extends Controller
     public function create()
     {
         $project = new Project();
-        return view('admin.projects.create', compact('project'));
+        $types = Type::all();
+        return view('admin.projects.create', compact('project', 'types'));
     }
 
     /**
@@ -119,7 +124,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('admin.projects.edit', compact('project'));
+        $types = Type::all();
+        return view('admin.projects.edit', compact('project', 'types'));
     }
 
     /**
