@@ -13,6 +13,22 @@
                     value="{{old('title') ?? $project->title}}">
         </div>
         <div class="mb-3">
+            <label for="project-type" class="form-label">Project Type *</label>
+            <select class="form-select @error('type_id') border-danger @enderror" id="project-type" name="type_id">
+                <option selected>
+                    @error('type_id')
+                        {{$message}}
+                        @else
+                        Choose a project type
+                    @enderror
+                </option>
+                @foreach ($types as $type)                    
+                    <option value="{{$type->id}}" {{(old('type_id', $project->type_id) == $type->id)?'selected':''}}>{{$type->name}}</option>
+                @endforeach
+            </select>
+            
+        </div>
+        <div class="mb-3">
             <label for="image" class="form-label">Project Cover *</label>
             <input type="file" class="@error('image') border-danger @enderror form-control" 
                         placeholder="@error('image'){{$message}}@enderror" id="image" name="image">
