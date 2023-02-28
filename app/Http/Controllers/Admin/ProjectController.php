@@ -69,7 +69,7 @@ class ProjectController extends Controller
                     ->orderBy($orderBy ?? 'id', ($dir) ? 'ASC' : 'DESC')
                     ->paginate(10)->withQueryString();
 
-        $fields = ['Title', 'Start Date', 'End Date'];
+        $fields = ['Title', 'Type', 'Start Date', 'End Date'];
 
         return view('admin.projects.index',  compact('projects', 'fields', 'orderBy', 'dir'));
     }
