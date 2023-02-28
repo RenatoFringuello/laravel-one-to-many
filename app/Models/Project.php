@@ -11,15 +11,16 @@ class Project extends Model
     use HasFactory;
 
     protected $fillable = [
+        'user_id',
+        'type_id',
         'slug',
         'title',
         'content',
         'start_date',
         'end_date',
+        'image',
         // url,
         // github_uri, //must be {{user->github_nickname/(project->slug || project->github_title)}}
-        'image',
-        'user_id'
     ];
     protected $dates = [
         'start_date',
