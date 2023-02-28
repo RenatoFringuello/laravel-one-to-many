@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('projects', function (Blueprint $table) {
             //
-            $table->text('image');
+            $table->text('image')->after('content');
         });
     }
 
