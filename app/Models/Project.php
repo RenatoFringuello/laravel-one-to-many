@@ -39,4 +39,13 @@ class Project extends Model
     public function user():BelongsTo{
         return $this->belongsTo(User::class);
     }
+    
+    /**
+     * get the user data related to the project
+     *
+     * @return BelongsTo
+     */
+    public function type():BelongsTo{
+        return $this->belongsTo(Type::class);
+    }
 }
