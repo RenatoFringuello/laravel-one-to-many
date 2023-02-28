@@ -17,18 +17,6 @@
             <input type="file" class="@error('image') border-danger @enderror form-control" 
                         placeholder="@error('image'){{$message}}@enderror" id="image" name="image">
         </div>
-        {{-- <div class="mb-3">
-                <label for="author_name" class="form-label">Author Name *</label>
-                <input  type="text" class="@error('author_name') border-danger @enderror form-control" 
-                        placeholder="@error('author_name'){{$message}}@enderror" id="author_name" name="author_name"
-                        value="{{old('author_name', $project->author_name)}}">
-        </div>
-        <div class="mb-3">
-            <label for="author_lastname" class="form-label">Author Lastname *</label>
-            <input  type="text" class="@error('author_lastname') border-danger @enderror form-control" 
-                        placeholder="@error('author_lastname'){{$message}}@enderror" id="author_lastname" name="author_lastname"
-                        value="{{old('author_lastname', $project->author_lastname)}}">
-        </div> --}}
         <div class="mb-3">
             <label for="content" class="form-label">Content *</label>
             <textarea class="@error('content') border-danger @enderror form-control" 
