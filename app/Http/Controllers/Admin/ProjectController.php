@@ -23,7 +23,7 @@ class ProjectController extends Controller
      */
     protected function getValidatedData(Request $request){
         $validation = [
-            'type_id' => "required|in:1,2,3",
+            'type_id' => "required|exists:types,id",
             'title' => "required|max:50",
             'image' => "image",
             'content' => 'required',
